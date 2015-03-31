@@ -60,6 +60,7 @@ $(document).ready(function () {
 
     function initModal(){
         $('.modal-button').on('click', function(e){
+            mySwiper.touchMoveStopPropagation = true;
             $.get($(this).attr('modal-content'), function(response){
                 $('#modal-content .modal-inner').html(response);
                 $('#modal-content').show();
@@ -82,6 +83,7 @@ $(document).ready(function () {
                 $('#modal-content .modal-container').removeClass('animated bounceOut');
                 $('#modal-content').hide();
                 $('#modal-content .modal-inner').html('');
+                mySwiper.touchMoveStopPropagation = false;
             });
         });
     }
