@@ -103,6 +103,7 @@ $(document).ready(function () {
         mySwiper = new Swiper ('#main-content', {
             // Optional parameters
             direction: 'vertical',
+            parallax: true,
             onInit: function(swiper){
                 hideSlide();
                 showOnebyOne();
