@@ -22,11 +22,11 @@
 
 </head>
 <body>
-<div id="loading" style="position:absolute;width: 100px;height: auto; top:34%; left: 50%;margin-left: -50px;text-align: center;">
+<div id="loading" style="font-size:18px;color:darkgray;position:absolute;width: 100px;height: auto; top:34%; left: 50%;margin-left: -50px;text-align: center;">
     <img src="imgs/loading.svg" style="width: 100px;height: auto;" >
     <div><span id="loading-percent">12</span>%</div>
 </div>
-<img src="imgs/logo.svg" id="logo" class="full-width fix-top z-index-10" style="display: none;"/>
+
 <div id="modal-content" style="display:none;">
     <div id="modal-content-bg"></div>
     <div class="modal-container">
@@ -36,9 +36,46 @@
     </div>
     <div id="modal-close-button" style="display: none;"></div>
 </div>
+
+<div id="page-02-header">
+    <img src="imgs/page-02-logo.svg" class="full-width fix-top" animated-css="delay-1 fadeInUp"/>
+    <div class="full-width fix-top">
+        <img src="imgs/page-02-2015.svg" class="full-width" animated-css="delay-1 fadeInRight"/>
+        <img src="imgs/page-02-title.svg" class="full-width" animated-css="delay-2 fadeInLeft"/>
+        <img src="imgs/page-02-subtitle.svg" class="full-width" animated-css="delay-3 fadeInRight"/>
+        <img src="imgs/page-02-subtitle-2.svg" class="full-width" animated-css="delay-4 fadeInLeft"/>
+    </div>
+    <img src="imgs/page-02-footer.svg" class="full-width fix-bottom" animated-css="delay-2 fadeDown"/>
+    <img src="imgs/arrow.svg" class="full-width fix-bottom animated bounce infinite"/>
+</div>
+
 <!-- Swiper -->
 <div class="swiper-container" id="main-content" style="display:none;">
     <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <div style="width:100%;height:100%;background-image: url(imgs/page-01.png);background-size: 100% auto;background-repeat: no-repeat;"></div>
+            <img src="imgs/page-01-button.svg" class="full-width fix-bottom animated bounce infinite" style="z-index: 1000;"/>
+        </div>
+        <div class="swiper-slide">
+
+
+
+        </div>
+        <div class="swiper-slide">
+            <img src="imgs/page-02-page-after.svg" class="full-width fix-bottom"/>
+            <img src="imgs/arrow.svg" class="full-width fix-bottom animated bounce infinite"/>
+        </div>
+
+        <div class="swiper-slide">
+            <img src="imgs/page-03-title.svg" class="full-width" animated-css="delay-0 fadeInRight" style="background-color: #1e1c26"/>
+            <img src="imgs/page-03-1.svg" class="full-width" animated-css="delay-1 fadeInRight" style="background-image: url(imgs/pattern-a.png);background-size: 100%;"/>
+            <img src="imgs/page-03-2.svg" class="full-width" animated-css="delay-2 fadeInRight" style="background-image: url(imgs/pattern-c.png);background-size: 50%;"/>
+            <img src="imgs/page-03-3.svg" class="full-width" animated-css="delay-3 fadeInRight" style="background-image: url(imgs/pattern-d.png);background-size: 100%;"/>
+            <img src="imgs/page-03-4.svg" class="full-width" animated-css="delay-4 fadeInRight" style="background-image: url(imgs/pattern-b.png);background-size: 50%;"/>
+
+            <img src="imgs/arrow.svg" class="full-width fix-bottom animated bounce infinite"/>
+        </div>
+
         <div class="swiper-slide">
             <img src="imgs/bg-top.svg" class="full-width fix-top"/>
             <div class="show-hide delay-0"  animated-css="shake">
@@ -74,10 +111,6 @@
         </div>
     </div>
 </div>
-<img src="imgs/bg-bottom-2.svg" id="wave" class="full-width fix-bottom" style="display: none;"/>
-
-
-
 
 </body>
 </html>

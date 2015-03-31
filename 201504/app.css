@@ -119,3 +119,8 @@ body {
 .z-index-10{
     z-index: 10;
 }
+body{
+    background-image: url(imgs/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
