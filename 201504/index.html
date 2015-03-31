@@ -16,13 +16,26 @@
 
 </head>
 <body>
-<img src="imgs/logo.svg" class="full-width fix-top z-index-10"/>
+<div id="loading" style="position:absolute;width: 64px;height: auto; top:44%; left: 50%;margin-left: -32px;text-align: center;">
+    <img src="imgs/loading.svg" >
+    <div><span loading-percent>12</span>%</div>
+</div>
+<img src="imgs/logo.svg" id="logo" class="full-width fix-top z-index-10"/>
+<div id="modal-content" style="display:none;">
+    <div id="modal-content-bg"></div>
+    <div class="modal-container">
+        <div class="swiper-wrapper modal-inner">
+
+        </div>
+    </div>
+    <div id="modal-close-button" style="display: none;"></div>
+</div>
 <!-- Swiper -->
-<div class="swiper-container">
+<div class="swiper-container" id="main-content">
     <div class="swiper-wrapper">
         <div class="swiper-slide">
             <img src="imgs/bg-top.svg" class="full-width fix-top"/>
-            <img src="imgs/placeholder.svg" class="full-width delay-0" animated-css="shake"/>
+            <img src="imgs/placeholder.svg" class="modal-button full-width delay-0" modal-content="modal-a.html" animated-css="shake"/>
             <img src="imgs/placeholder.svg" class="full-width delay-1" animated-css="fadeInDown"/>
             <img src="imgs/placeholder.svg" class="full-width delay-2" animated-css="zoomIn"/>
             <img src="imgs/bg-bottom.svg" class="full-width fix-bottom"/>
@@ -44,12 +57,13 @@
         </div>
     </div>
 </div>
-<img src="imgs/bg-bottom-2.svg" class="full-width fix-bottom"/>
+<img src="imgs/bg-bottom-2.svg" id="wave" class="full-width fix-bottom"/>
 
 
 <!-- Swiper JS -->
 <script src="libs/zepto.min.js"></script>
 <script src="libs/swiper.jquery.min.js"></script>
+<script src="libs/preloadjs-NEXT.min.js"></script>
 <script src="app.js"></script>
 
 </body>
