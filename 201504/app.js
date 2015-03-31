@@ -1,13 +1,14 @@
 // Initialize Swiper
 $(document).ready(function () {
 
-
     var isOK = false;
     var preload;
+    var currentIndex = 0;
+    var mySwiper;
 
     function init() {
         // Create a new queue.
-        preload = new createjs.LoadQueue(false, "imgs/");
+        preload = new createjs.LoadQueue(true, "imgs/");
 
         var plugin = {
             getPreloadHandlers: function () {
@@ -22,7 +23,7 @@ $(document).ready(function () {
         };
 
         preload.installPlugin(plugin);
-        preload.loadManifest(["logo.svg"
+        preload.loadManifest(["logo.svg","logo.svg"
 
         ]);
         preload.on("complete", handleComplete);
@@ -31,17 +32,16 @@ $(document).ready(function () {
 
     function handleComplete(event) {
         overLoading();
-    }
-    init();
 
+    }
 
     function overLoading(){
+        $('#main-content').show();
         $('#loading').addClass("animated bounceOut").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
             $("#loading").removeClass("animated bounceOut");
             hideOpacity($("#loading"));
             $("#logo").css('opacity', '1');
             $("#wave").css('opacity', '1');
-            $("#main-content").css('opacity', '1');
             initSwiper();
             initModal();
         });
@@ -50,7 +50,8 @@ $(document).ready(function () {
     hideSlide();
     $("#logo").css('opacity', '0');
     $("#wave").css('opacity', '0');
-    $('#main-content').css('opacity', '0');
+
+    init();
 
     function initModal(){
         $('.modal-button').on('click', function(e){
@@ -79,11 +80,11 @@ $(document).ready(function () {
             });
         });
     }
-    var currentIndex = 0;
+
     function initSwiper(){
 
         //initialize swiper when document ready
-        var mySwiper = new Swiper ('#main-content', {
+        mySwiper = new Swiper ('#main-content', {
             // Optional parameters
             direction: 'vertical',
             onInit: function(swiper){
@@ -132,4 +133,6 @@ $(document).ready(function () {
 
         });
     }
+
+    console.log('js');
 });
