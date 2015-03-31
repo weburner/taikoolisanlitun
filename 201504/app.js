@@ -42,6 +42,7 @@ $(document).ready(function () {
         $('#loading').addClass("animated bounceOut").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
             $("#loading").removeClass("animated bounceOut");
             hideOpacity($("#loading"));
+            $('#main-content').css('opacity', '1');
             $("#logo").css('opacity', '1');
             $("#wave").css('opacity', '1');
             initSwiper();
@@ -50,6 +51,7 @@ $(document).ready(function () {
     }
 
     hideSlide();
+    $('#main-content').css('opacity', '0');
     $("#logo").css('opacity', '0');
     $("#wave").css('opacity', '0');
 
