@@ -87,6 +87,8 @@ $(document).ready(function () {
                     });
                 });
                 var swiperV = new Swiper('#modal-content .modal-container', {
+                    nextButton: '.swiper-button-next',
+                    prevButton: '.swiper-button-prev',
                 });
             });
         });
