@@ -50,6 +50,7 @@ $(document).ready(function () {
         });
     }
 
+
     hideSlide();
     $('#main-content').css('opacity', '0');
     $("#logo").css('opacity', '0');
