@@ -37,6 +37,8 @@ $(document).ready(function () {
 
     function overLoading(){
         $('#main-content').show();
+        $("#logo").show();
+        $("#wave").show();
         $('#loading').addClass("animated bounceOut").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
             $("#loading").removeClass("animated bounceOut");
             hideOpacity($("#loading"));
