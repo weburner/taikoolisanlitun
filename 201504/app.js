@@ -32,7 +32,8 @@ $(document).ready(function () {
     }
 
     function handleOverallProgress(event) {
-        $('#loading-percent').html(preload.progress);
+        console.log(preload.progress);
+        $('#loading-percent').html(preload.progress * 100);
     }
 
     function handleComplete(event) {
