@@ -47,6 +47,7 @@ $(document).ready(function () {
             $("#wave").css('opacity', '1');
             initSwiper();
             initModal();
+            showHideBlock();
         });
     }
 
@@ -57,6 +58,16 @@ $(document).ready(function () {
     $("#wave").css('opacity', '0');
 
     init();
+
+    function showHideBlock(){
+
+        $('.show-hide .show').on('click', function(e){
+            $('.show-hide .show').show();
+            $('.show-hide .hide').hide();
+            $(this).hide();
+            $(this).next().show();
+        });
+    }
 
     function initModal(){
         $('.modal-button').on('click', function(e){

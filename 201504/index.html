@@ -35,9 +35,18 @@
     <div class="swiper-wrapper">
         <div class="swiper-slide">
             <img src="imgs/bg-top.svg" class="full-width fix-top"/>
-            <img src="imgs/placeholder.svg" class="modal-button full-width delay-0" modal-content="modal-a.html" animated-css="shake"/>
-            <img src="imgs/placeholder.svg" class="full-width delay-1" animated-css="fadeInDown"/>
-            <img src="imgs/placeholder.svg" class="full-width delay-2" animated-css="zoomIn"/>
+            <div class="show-hide full-width delay-0"  animated-css="shake">
+                <img src="imgs/placeholder.svg" class="full-width show"/>
+                <img src="imgs/placeholder.svg" class="full-width modal-button hide" modal-content="modal-a.html" style="display: none;background-color: yellow; height:200px;"/>
+            </div>
+            <div class="show-hide full-width delay-0"  animated-css="shake">
+                <img src="imgs/placeholder.svg" class="full-width show"/>
+                <img src="imgs/placeholder.svg" class="full-width modal-button hide" modal-content="modal-a.html" style="display: none;background-color: yellow; height:200px;"/>
+            </div>
+            <div class="show-hide full-width delay-0"  animated-css="shake">
+                <img src="imgs/placeholder.svg" class="full-width show" style="display: none;"/>
+                <img src="imgs/placeholder.svg" class="full-width modal-button hide" modal-content="modal-a.html" style="background-color: yellow; height:200px;"/>
+            </div>
             <img src="imgs/bg-bottom.svg" class="full-width fix-bottom"/>
         </div>
         <div class="swiper-slide">
