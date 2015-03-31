@@ -27,7 +27,12 @@ $(document).ready(function () {
 
         ]);
         preload.on("complete", handleComplete);
+        preload.on("progress", handleOverallProgress);
 
+    }
+
+    function handleOverallProgress(event) {
+        $('#loading-percent').html(preload.progress);
     }
 
     function handleComplete(event) {
