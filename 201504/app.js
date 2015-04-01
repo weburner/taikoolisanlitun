@@ -56,6 +56,7 @@ $(document).ready(function () {
             initModal();
             showHideBlock();
             $('body').css('background-image', 'url(imgs/page-02.jpg)');
+
         });
     }
 
@@ -112,10 +113,8 @@ $(document).ready(function () {
         mySwiper = new Swiper ('#main-content', {
             // Optional parameters
             direction: 'vertical',
-            parallax: true,
             resistanceRatio: 0,
             noSwiping : true,
-            allowSwipeToPrev: false,
 
             onInit: function(swiper){
                 hideSlide();
@@ -148,6 +147,44 @@ $(document).ready(function () {
                     });
                 }
 
+                if(currentIndex == 8){
+                    $("#parallax-bg").hide();
+                }
+                if(currentIndex == 9){
+                    $('body').css('background-image', 'url(imgs/brands-bg.png)');
+                    $("#parallax-bg").show();
+                    $("#parallax-bg").animate({
+                        translate3d: '0,0,0'
+                    }, 500, 'ease-out')
+                }
+                 else if(currentIndex == 10){
+                    $("#parallax-bg").animate({
+                        translate3d: '0,-20%,0'
+                    }, 500, 'ease-out')
+
+                }
+                else if(currentIndex == 11){
+                    $("#parallax-bg").animate({
+                        translate3d: '0,-40%,0'
+                    }, 500, 'ease-out')
+                }
+                else if(currentIndex == 12){
+                    $('body').css('background-image', 'url(imgs/brands-bg.png)');
+                    $("#parallax-bg").show();
+                    $("#parallax-bg").animate({
+                        translate3d: '0,-60%,0'
+                    }, 500, 'ease-out')
+                }
+                else if(currentIndex == 13){
+                    $('body').css('background-image', 'url(imgs/bg.jpg)');
+                    $("#parallax-bg").hide();
+                }
+                else if(currentIndex == 15){
+                    $('#page-hudong-header').show();
+                    $('body').css('background-image', 'url(imgs/page-huodong-2-bg.jpg)');
+                }
+                console.log(">>"+currentIndex);
+
 
 
             },
@@ -162,7 +199,8 @@ $(document).ready(function () {
                     $('body').css('background-image', 'url(imgs/bg.jpg)');
                 }
 
-                console.log(">>"+currentIndex);
+
+
 
             }
         });

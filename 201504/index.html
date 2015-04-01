@@ -16,6 +16,7 @@
 
     <!-- Swiper JS -->
     <script src="libs/zepto.min.js"></script>
+    <script src="libs/zepto-animation.js"></script>
     <script src="libs/swiper.jquery.min.js"></script>
     <script src="libs/preloadjs-NEXT.min.js"></script>
     <script src="app.js"></script>
@@ -50,11 +51,20 @@
         <img src="imgs/page-02-subtitle-2.svg" class="full-width" animated-css="delay-4 fadeInRight"/>
     </div>
     <img src="imgs/page-02-footer.svg" class="full-width fix-bottom" animated-css="delay-2 fadeDown"/>
-    <img src="imgs/arrow.svg" class="full-width fix-bottom animated bounce infinite"/>
+</div>
+<div id="page-hudong-header" style="display: none;">
+    <div class="full-width fix-top">
+        <img src="imgs/page-huodong-2.svg" class="full-width" animated-css="delay-1 fadeInRight"/>
+    </div>
 </div>
 
 <!-- Swiper -->
 <div class="swiper-container" id="main-content" style="display:none;">
+
+    <!-- Parallax background element -->
+    <div id="parallax-bg" class="parallax-bg" style="display: none;"></div>
+
+
     <div class="swiper-wrapper">
         <div class="swiper-slide">
             <div style="width:100%;height:100%;background-image: url(imgs/page-01.png);background-size: 100% auto;background-repeat: no-repeat;"></div>
@@ -64,7 +74,6 @@
         </div>
         <div class="swiper-slide">
             <img src="imgs/page-02-page-after.svg" class="full-width fix-bottom"/>
-            <img src="imgs/arrow.svg" class="full-width fix-bottom animated bounce infinite"/>
         </div>
 
         <div class="swiper-slide" style="background-color: #1e1c26">
@@ -74,13 +83,11 @@
             <img src="imgs/page-03-3.svg" class="full-width" animated-css="delay-3 fadeInRight" style="background-image: url(imgs/pattern-d.png);background-size: 100%;"/>
             <img src="imgs/page-03-4.svg" class="full-width" animated-css="delay-4 fadeInRight" style="background-image: url(imgs/pattern-b.png);background-size: 50%;"/>
 
-            <img src="imgs/arrow.svg" class="full-width fix-bottom animated bounce infinite"/>
         </div>
 
         <div class="swiper-slide" style="background-image: url(imgs/pattern-a.png);background-size: 100%;">
             <img src="imgs/back.svg" class="full-width fix-top"/>
             <img src="imgs/page-04.svg" class="full-width" animated-css="zoomIn"/>
-            <img src="imgs/arrow.svg" class="full-width fix-bottom animated bounce infinite"/>
         </div>
         <div class="swiper-slide" style="background-color: #af2c3c;">
             <img src="imgs/back.svg" class="full-width fix-top"/>
@@ -104,50 +111,76 @@
                 </div>
                 <img src="imgs/space.svg" class="full-width"/>
             </div>
-            <img src="imgs/arrow.svg" class="full-width fix-bottom animated bounce infinite"/>
         </div>
 
-        <div class="swiper-slide">
-            <img src="imgs/bg-top.svg" class="full-width fix-top"/>
-            <div class="show-hide delay-0"  animated-css="shake">
-                <img src="imgs/placeholder.svg" class="full-width show"/>
-                <img src="imgs/placeholder.svg" class="full-width modal-button hide" modal-content="modal-a.html" style="display: none;background-color: yellow; height:200px;"/>
+
+        <div class="swiper-slide" style="background-color: #af2c3c;">
+            <img src="imgs/back.svg" class="full-width fix-top"/>
+            <div class="full-width fix-top">
+                <img src="imgs/page-06.svg" class="full-width" animated-css="zoomIn"/>
+                <img src="imgs/page-05-logo.svg" class="full-width" animated-css="zoomIn"/>
             </div>
-            <div class="show-hide delay-0"  animated-css="shake">
-                <img src="imgs/placeholder.svg" class="full-width show"/>
-                <img src="imgs/placeholder.svg" class="full-width modal-button hide" modal-content="modal-a.html" style="display: none;background-color: yellow; height:200px;"/>
+            <div class="full-width fix-bottom">
+                <img src="imgs/page-06-info.svg" class="full-width" animated-css="zoomIn"/>
+                <img src="imgs/2-1.svg" class="full-width modal-button" modal-content="modal-a.html" style="background-image: url(imgs/2-1.jpg); background-size: 100% auto;"/>
+                <img src="imgs/2-2.svg" class="full-width modal-button" modal-content="modal-a.html" style="background-image: url(imgs/2-2.jpg); background-size: 100% auto;margin-top: -8px;"/>
+                <img src="imgs/space.svg" class="full-width" style="background-color: #af2c3c;margin-top: -8px;"/>
             </div>
-            <div class="show-hide delay-0"  animated-css="shake">
-                <img src="imgs/placeholder.svg" class="full-width show" style="display: none;"/>
-                <img src="imgs/placeholder.svg" class="full-width modal-button hide" modal-content="modal-a.html" style="background-color: yellow; height:200px;"/>
-            </div>
-            <img src="imgs/bg-bottom.svg" class="full-width fix-bottom"/>
         </div>
         <div class="swiper-slide" style="background-image: url(imgs/pattern-a.png);background-size: 100%;">
             <div animated-css="zoomIn" style="z-index:200;background-image: url(imgs/page-07-bg.png);background-size:100% auto;background-repeat:no-repeat;position: absolute;top:30px;left: 30px;right: 20px;bottom: 30px;  padding-top: 10%;">
                 <img src="imgs/page-07-title.png" class="full-width" />
                 <img src="imgs/page-07-content.svg" class="full-width" />
             </div>
-            <img src="imgs/arrow.svg" class="full-width fix-bottom animated bounce infinite"/>
 
         </div>
         <div class="swiper-slide" style="background-image: url(imgs/pattern-c.png);background-size: 50%;">
             <img src="imgs/back.svg" class="full-width fix-top"/>
             <img src="imgs/page-08.svg" class="full-width" animated-css="zoomIn"/>
-            <img src="imgs/arrow.svg" class="full-width fix-bottom animated bounce infinite"/>
+        </div>
+
+        <div class="swiper-slide">
         </div>
         <div class="swiper-slide">
-            <img src="imgs/placeholder.svg" class="full-width delay-1" animated-css="fadeInDown"/>
-            <img src="imgs/placeholder.svg" class="full-width delay-2" animated-css="zoomIn"/>
-            <img src="imgs/bg-bottom.svg" class="full-width fix-bottom"/>
         </div>
         <div class="swiper-slide">
-            <img src="imgs/placeholder.svg" class="full-width" animated-css="fadeIn"/>
         </div>
         <div class="swiper-slide">
-            <img src="imgs/placeholder.svg" class="full-width" animated-css="fadeIn"/>
+        </div>
+
+        <div class="swiper-slide" style="background-image: url(imgs/pattern-d.png);background-size: 100%;">
+            <img src="imgs/back.svg" class="full-width fix-top"/>
+            <img src="imgs/page-huodong.svg" class="full-width" animated-css="zoomIn"/>
+        </div>
+        <div class="swiper-slide" style="background-image: url(imgs/page-huodong-bg.jpg);background-size:cover;">
+            <img src="imgs/page-huodong-arrow.svg" class="full-width" animated-css="delay-1 fadeInLeft" style="position: absolute;  top: 28%;"/>
+            <img src="imgs/page-huodong-content.svg" class="full-width" animated-css="fadeIn"/>
+
+        </div>
+        <div class="swiper-slide">
+        </div>
+        <div class="swiper-slide">
+            <img src="imgs/page-huodong-2-pop.svg" class="full-width fix-bottom"/>
+        </div>
+        <div class="swiper-slide" style="background-image: url(imgs/page-huodong-3-bg.jpg);background-size: cover;">
+            <img src="imgs/page-huodong-3-header.svg" class="full-width fix-top"/>
+            <img src="imgs/page-huodong-3-content.svg" class="full-width"/>
+        </div>
+        <div class="swiper-slide" style="background-image: url(imgs/pattern-b.png);background-size: 100%;">
+            <img src="imgs/back.svg" class="full-width fix-top"/>
+            <img src="imgs/page-uber.svg" class="full-width" animated-css="zoomIn"/>
+        </div>
+        <div class="swiper-slide" style="background-image: url(imgs/pattern-b.png);background-size: 100%;">
+            <img src="imgs/back.svg" class="full-width fix-top"/>
+            <img src="imgs/page-uber-2.svg" class="full-width" animated-css="zoomIn"/>
+        </div>
+        <div class="swiper-slide" style="background-color: ">
+            <img src="imgs/back.svg" class="full-width fix-top"/>
+            <img src="imgs/page-uber-2.svg" class="full-width" animated-css="zoomIn"/>
         </div>
     </div>
+
+    <img src="imgs/arrow.svg" class="full-width fix-bottom animated bounce infinite"/>
 </div>
 
 </body>
