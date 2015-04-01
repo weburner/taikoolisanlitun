@@ -26,7 +26,9 @@ $(document).ready(function () {
         preload.loadManifest(["bg.jpg",
             "page-01.png",
             "page-01-button.svg",
-            "page-02.jpg"
+            "page-02.jpg",
+            "brands.svg",
+            "brands-bg.png"
 
         ]);
         preload.on("complete", handleComplete);
