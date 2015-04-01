@@ -5,6 +5,7 @@ $(document).ready(function () {
     var preload;
     var currentIndex = 0;
     var mySwiper;
+    var modalSlide;
 
     function init() {
         // Create a new queue.
@@ -82,21 +83,31 @@ $(document).ready(function () {
 
     function initModal(){
         $('.modal-button').on('click', function(e){
+            var index = $(this).attr('modal-index');
             $.get($(this).attr('modal-content'), function(response){
                 $('#modal-content .modal-inner').html(response);
                 $('#modal-content').show();
                 $('#modal-content .modal-container').addClass('animated bounceIn').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
                     $('#modal-content .modal-container').removeClass('animated bounceIn');
 
+
+
                     $('#modal-close-button').show();
                     $('#modal-close-button').addClass('animated fadeIn').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
                         $('#modal-close-button').removeClass('animated fadeIn');
                     });
                 });
-                var swiperV = new Swiper('#modal-content .modal-container', {
+                modalSlide = new Swiper('#modal-content .modal-container', {
                     nextButton: '.swiper-button-next',
                     prevButton: '.swiper-button-prev'
                 });
+
+
+                setTimeout(function(){
+                    modalSlide.slideTo(index,0);
+                }, 100);
+
+
             });
         });
 
