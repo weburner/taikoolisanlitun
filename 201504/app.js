@@ -128,8 +128,10 @@ $(document).ready(function () {
                 if(currentIndex == 0){
                     $('body').css('background-image', 'url(imgs/page-02.jpg)');
                     $('#page-02-header').hide();
+                    $('#bounce-arrow').hide();
                 }
                 else if(currentIndex == 1 || currentIndex ==2){
+                    $('#bounce-arrow').show();
                     $('#page-02-header').show();
                     mySwiper.allowSwipeToNext = false;
                     $('body').css('background-image', 'url(imgs/page-02.jpg)');
