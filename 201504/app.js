@@ -55,6 +55,7 @@ $(document).ready(function () {
             hideOpacity($("#loading"));
             $('#main-content').css('opacity', '1');
             initSwiper();
+            initLink();
             initModal();
             showHideBlock();
             $('body').css('background-image', 'url(imgs/page-02.jpg)');
@@ -108,6 +109,24 @@ $(document).ready(function () {
             });
         });
     }
+    function initLink(){
+        $('.backtocata').on('click', function(e){
+            mySwiper.slideTo(3);
+        });
+        $('#cata1').on('click', function(e){
+            mySwiper.slideTo(4);
+        });
+        $('#cata2').on('click', function(e){
+            mySwiper.slideTo(8);
+        });
+        $('#cata3').on('click', function(e){
+            mySwiper.slideTo(13);
+        });
+        $('#cata4').on('click', function(e){
+            mySwiper.slideTo(18);
+        });
+    }
+
 
     function initSwiper(){
 
