@@ -23,7 +23,10 @@ $(document).ready(function () {
         };
 
         preload.installPlugin(plugin);
-        preload.loadManifest(["logo.svg","logo.svg"
+        preload.loadManifest(["bg.jpg",
+            "page-01.png",
+            "page-01-button.svg",
+            "page-02.jpg"
 
         ]);
         preload.on("complete", handleComplete);
@@ -134,17 +137,13 @@ $(document).ready(function () {
                     $('#page-02-header').children().each(function(element){
                         if($(this).attr('animated-css')){
                             showOpacity($(this));
-                            $(this).addClass('animated ' + $(this).attr('animated-css')).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-                                $(this).removeClass('animated ' + $(this).attr('animated-css'));
-                            });
+                            $(this).addClass('animated ' + $(this).attr('animated-css'));
                         }
                     });
                     $('#page-02-header').children().children().each(function(element){
                         if($(this).attr('animated-css')){
                             showOpacity($(this));
-                            $(this).addClass('animated ' + $(this).attr('animated-css')).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-                                $(this).removeClass('animated ' + $(this).attr('animated-css'));
-                            });
+                            $(this).addClass('animated ' + $(this).attr('animated-css'));
                         }
                     });
                 }
@@ -156,10 +155,10 @@ $(document).ready(function () {
                 if(currentIndex != swiper.activeIndex){
                     hideSlide();
                 }
-                if(currentIndex != 0 && currentIndex != 1 ){
+                if(currentIndex != 0 && currentIndex != 1 && currentIndex != 2 ){
                     $('#page-02-header').css('opacity', '0');
                 }
-                if(currentIndex == 2 ){
+                if(currentIndex == 3 ){
                     $('body').css('background-image', 'url(imgs/bg.jpg)');
                 }
 
