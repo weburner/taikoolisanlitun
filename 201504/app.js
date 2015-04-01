@@ -97,16 +97,14 @@ $(document).ready(function () {
                         $('#modal-close-button').removeClass('animated fadeIn');
                     });
                 });
+
                 modalSlide = new Swiper('#modal-content .modal-container', {
                     nextButton: '.swiper-button-next',
-                    prevButton: '.swiper-button-prev'
+                    prevButton: '.swiper-button-prev',
+                    loop: true
                 });
 
-
-                setTimeout(function(){
-                    modalSlide.slideTo(index,0);
-                }, 100);
-
+                modalSlide.slideTo(index,0);
 
             });
         });
@@ -117,24 +115,27 @@ $(document).ready(function () {
                 $('#modal-content .modal-container').removeClass('animated bounceOut');
                 $('#modal-content').hide();
                 $('#modal-content .modal-inner').html('');
+
+                modalSlide.destroy();
+
             });
         });
     }
     function initLink(){
         $('.backtocata').on('click', function(e){
-            mySwiper.slideTo(3);
-        });
-        $('#cata1').on('click', function(e){
             mySwiper.slideTo(4);
         });
+        $('#cata1').on('click', function(e){
+            mySwiper.slideTo(5);
+        });
         $('#cata2').on('click', function(e){
-            mySwiper.slideTo(8);
+            mySwiper.slideTo(9);
         });
         $('#cata3').on('click', function(e){
-            mySwiper.slideTo(13);
+            mySwiper.slideTo(14);
         });
         $('#cata4').on('click', function(e){
-            mySwiper.slideTo(18);
+            mySwiper.slideTo(19);
         });
     }
 
@@ -145,8 +146,7 @@ $(document).ready(function () {
         mySwiper = new Swiper ('#main-content', {
             // Optional parameters
             direction: 'vertical',
-            resistanceRatio: 0,
-            noSwiping : true,
+            loop: true,
 
             onInit: function(swiper){
                 hideSlide();
@@ -157,15 +157,15 @@ $(document).ready(function () {
                     showOnebyOne();
                 }
                 currentIndex = swiper.activeIndex;
-                if(currentIndex == 0){
+                if(currentIndex == 1 || currentIndex == 22){
                     $('body').css('background-image', 'url(imgs/page-02.jpg)');
                     $('#page-02-header').hide();
                     $('#bounce-arrow').hide();
                 }
-                else if(currentIndex == 1 || currentIndex ==2){
+                else if(currentIndex == 2 || currentIndex ==3){
                     $('#bounce-arrow').show();
                     $('#page-02-header').show();
-                    mySwiper.allowSwipeToNext = false;
+
                     $('body').css('background-image', 'url(imgs/page-02.jpg)');
                     $('#page-02-header').css('opacity', '1');
                     $('#page-02-header').children().each(function(element){
@@ -181,49 +181,53 @@ $(document).ready(function () {
                         }
                     });
                 }
+                else if(currentIndex == 4){
+                    $('#page-02-header').hide();
+                    $('body').css('background-image', 'url(imgs/bg.jpg)');
+                }
 
-                else if(currentIndex == 8){
+                else if(currentIndex == 9){
                     $("#parallax-bg").hide();
                 }
-                else if(currentIndex == 9){
+                else if(currentIndex == 10){
                     $('body').css('background-image', 'url(imgs/brands-bg.png)');
                     $("#parallax-bg").show();
                     $("#parallax-bg").animate({
                         translate3d: '0,0,0'
                     }, 500, 'ease-out')
                 }
-                 else if(currentIndex == 10){
+                 else if(currentIndex == 11){
                     $("#parallax-bg").animate({
                         translate3d: '0,-20%,0'
                     }, 500, 'ease-out')
 
                 }
-                else if(currentIndex == 11){
+                else if(currentIndex == 12){
                     $("#parallax-bg").animate({
                         translate3d: '0,-40%,0'
                     }, 500, 'ease-out')
                 }
-                else if(currentIndex == 12){
+                else if(currentIndex == 13){
                     $('body').css('background-image', 'url(imgs/brands-bg.png)');
                     $("#parallax-bg").show();
                     $("#parallax-bg").animate({
                         translate3d: '0,-60%,0'
                     }, 500, 'ease-out')
                 }
-                else if(currentIndex == 13){
+                else if(currentIndex == 14){
                     $('body').css('background-image', 'url(imgs/bg.jpg)');
                     $("#parallax-bg").hide();
                 }
-                else if(currentIndex == 14){
+                else if(currentIndex == 15){
                     $('#page-hudong-header').hide();
                     $('body').css('background-image', 'url(imgs/bg.jpg)');
                 }
-                else if(currentIndex == 15 || currentIndex == 16 ){
+                else if(currentIndex == 16 || currentIndex == 17 ){
                     $('#page-hudong-header').show();
                     $('body').css('background-image', 'url(imgs/page-huodong-2-bg.jpg)');
                 }
 
-                else if(currentIndex == 17){
+                else if(currentIndex == 18){
                     $('#page-hudong-header').hide();
                     $('body').css('background-image', 'url(imgs/bg.jpg)');
                 }
@@ -237,15 +241,6 @@ $(document).ready(function () {
                 if(currentIndex != swiper.activeIndex){
                     hideSlide();
                 }
-                if(currentIndex != 0 && currentIndex != 1 && currentIndex != 2 ){
-                    $('#page-02-header').css('opacity', '0');
-                }
-                if(currentIndex == 3 ){
-                    $('body').css('background-image', 'url(imgs/bg.jpg)');
-                }
-
-
-
 
             }
         });
