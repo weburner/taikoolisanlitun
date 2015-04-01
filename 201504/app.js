@@ -127,9 +127,10 @@ $(document).ready(function () {
                 currentIndex = swiper.activeIndex;
                 if(currentIndex == 0){
                     $('body').css('background-image', 'url(imgs/page-02.jpg)');
+                    $('#page-02-header').hide();
                 }
-
-                if(currentIndex == 1){
+                else if(currentIndex == 1 || currentIndex ==2){
+                    $('#page-02-header').show();
                     mySwiper.allowSwipeToNext = false;
                     $('body').css('background-image', 'url(imgs/page-02.jpg)');
                     $('#page-02-header').css('opacity', '1');
@@ -147,10 +148,10 @@ $(document).ready(function () {
                     });
                 }
 
-                if(currentIndex == 8){
+                else if(currentIndex == 8){
                     $("#parallax-bg").hide();
                 }
-                if(currentIndex == 9){
+                else if(currentIndex == 9){
                     $('body').css('background-image', 'url(imgs/brands-bg.png)');
                     $("#parallax-bg").show();
                     $("#parallax-bg").animate({
@@ -179,10 +180,20 @@ $(document).ready(function () {
                     $('body').css('background-image', 'url(imgs/bg.jpg)');
                     $("#parallax-bg").hide();
                 }
-                else if(currentIndex == 15){
+                else if(currentIndex == 14){
+                    $('#page-hudong-header').hide();
+                    $('body').css('background-image', 'url(imgs/bg.jpg)');
+                }
+                else if(currentIndex == 15 || currentIndex == 16 ){
                     $('#page-hudong-header').show();
                     $('body').css('background-image', 'url(imgs/page-huodong-2-bg.jpg)');
                 }
+
+                else if(currentIndex == 17){
+                    $('#page-hudong-header').hide();
+                    $('body').css('background-image', 'url(imgs/bg.jpg)');
+                }
+
                 console.log(">>"+currentIndex);
 
 
