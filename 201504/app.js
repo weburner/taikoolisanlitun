@@ -36,7 +36,7 @@ $(document).ready(function () {
 
     function handleOverallProgress(event) {
         console.log(preload.progress);
-        $('#loading-percent').html(preload.progress * 100);
+        $('#loading-percent').html(Math.round(preload.progress * 100));
     }
 
     function handleComplete(event) {
@@ -91,7 +91,7 @@ $(document).ready(function () {
                 });
                 var swiperV = new Swiper('#modal-content .modal-container', {
                     nextButton: '.swiper-button-next',
-                    prevButton: '.swiper-button-prev',
+                    prevButton: '.swiper-button-prev'
                 });
             });
         });
