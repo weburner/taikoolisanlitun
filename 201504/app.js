@@ -258,7 +258,7 @@ $(document).ready(function () {
                 if(currentIndex != swiper.activeIndex){
                     hideSlide();
                 }
-                console.log(">>"+currentIndex);
+                console.log(swiper.snapIndex);
 
             }
         });
