@@ -157,7 +157,7 @@ $(document).ready(function () {
                     showOnebyOne();
                 }
                 currentIndex = swiper.activeIndex;
-                if(currentIndex == 1 || currentIndex == 22){
+                if(currentIndex == 1 || currentIndex == 21){
                     $('body').css('background-image', 'url(imgs/page-02.jpg)');
                     $('#page-02-header').hide();
                     $('#bounce-arrow').hide();
@@ -198,22 +198,23 @@ $(document).ready(function () {
                 }
                  else if(currentIndex == 11){
                     $("#parallax-bg").animate({
-                        translate3d: '0,-20%,0'
+                        translate3d: '0,-22%,0'
                     }, 500, 'ease-out')
 
                 }
                 else if(currentIndex == 12){
                     $("#parallax-bg").animate({
-                        translate3d: '0,-40%,0'
+                        translate3d: '0,-44%,0'
                     }, 500, 'ease-out')
                 }
                 else if(currentIndex == 13){
                     $('body').css('background-image', 'url(imgs/brands-bg.png)');
                     $("#parallax-bg").show();
                     $("#parallax-bg").animate({
-                        translate3d: '0,-60%,0'
+                        translate3d: '0,-66%,0'
                     }, 500, 'ease-out')
                 }
+
                 else if(currentIndex == 14){
                     $('body').css('background-image', 'url(imgs/bg.jpg)');
                     $("#parallax-bg").hide();
@@ -230,6 +231,9 @@ $(document).ready(function () {
                 else if(currentIndex == 18){
                     $('#page-hudong-header').hide();
                     $('body').css('background-image', 'url(imgs/bg.jpg)');
+                }
+                else if(currentIndex == 20 || currentIndex == 0){
+                    $('#bounce-arrow').show();
                 }
 
                 console.log(">>"+currentIndex);
