@@ -1,4 +1,5 @@
 // Initialize Swiper
+document.ontouchmove = function(e) {e.preventDefault()};
 $(document).ready(function () {
 
     var isOK = false;
@@ -191,10 +192,15 @@ $(document).ready(function () {
                 else if(currentIndex == 4){
                     $('#page-02-header').hide();
                     $('body').css('background-image', 'url(imgs/bg.jpg)');
+
                 }
 
                 else if(currentIndex == 9){
                     $("#parallax-bg").hide();
+                    setTimeout(function() {
+                        $('body').css('background-image', 'url(imgs/brands-bg.png)');
+                    }, 100);
+
                 }
                 else if(currentIndex == 10){
                     $('body').css('background-image', 'url(imgs/brands-bg.png)');
@@ -243,7 +249,7 @@ $(document).ready(function () {
                     $('#bounce-arrow').show();
                 }
 
-//                console.log(">>"+currentIndex);
+                console.log(">>"+currentIndex);
 
 
 
