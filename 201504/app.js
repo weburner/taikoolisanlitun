@@ -14,7 +14,7 @@ $(document).ready(function () {
         var plugin = {
             getPreloadHandlers: function () {
                 return {
-                    extensions: ["svg","mp3","png"],
+                    extensions: ["svg","mp3","png","gif"],
                     callback: function (item) {
                         var id = item.src.toLowerCase().split("/").pop().split(".")[0];
                         $("#"+id).attr("src", item.src);
@@ -25,6 +25,7 @@ $(document).ready(function () {
 
         preload.installPlugin(plugin);
         preload.loadManifest(["bg.jpg",
+            "animation.gif",
             "page-01.png",
             "page-01-button.svg",
             "page-02.jpg",
@@ -38,7 +39,7 @@ $(document).ready(function () {
     }
 
     function handleOverallProgress(event) {
-        console.log(preload.progress);
+//        console.log(preload.progress);
         $('#loading-percent').html(Math.round(preload.progress * 100));
     }
 
@@ -147,6 +148,7 @@ $(document).ready(function () {
             // Optional parameters
             direction: 'vertical',
             loop: true,
+            hashnav: true,
 
             onInit: function(swiper){
                 hideSlide();
@@ -158,6 +160,11 @@ $(document).ready(function () {
                 }
                 currentIndex = swiper.activeIndex;
                 if(currentIndex == 1 || currentIndex == 21){
+                    $('#animation-color').css('opacity', '1');
+                    setTimeout(function() {
+                        $('#animation-color').css('opacity', '0');
+                    }, 3000);
+
                     $('body').css('background-image', 'url(imgs/page-02.jpg)');
                     $('#page-02-header').hide();
                     $('#bounce-arrow').hide();
@@ -236,7 +243,7 @@ $(document).ready(function () {
                     $('#bounce-arrow').show();
                 }
 
-                console.log(">>"+currentIndex);
+//                console.log(">>"+currentIndex);
 
 
 
@@ -279,5 +286,5 @@ $(document).ready(function () {
         });
     }
 
-    console.log('js');
+//    console.log('js');
 });
