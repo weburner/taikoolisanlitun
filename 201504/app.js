@@ -258,8 +258,11 @@ $(document).ready(function () {
                 if(currentIndex != swiper.activeIndex){
                     hideSlide();
                 }
-                console.log(swiper.snapIndex);
 
+
+            },
+            onSlideChangeStart: function(swiper){
+                console.log(swiper.snapIndex);
             }
         });
     }
