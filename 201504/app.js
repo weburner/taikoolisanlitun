@@ -160,7 +160,23 @@ $(document).ready(function () {
                     showOnebyOne();
                 }
                 currentIndex = swiper.activeIndex;
-                if(currentIndex == 1 || currentIndex == 21){
+
+
+
+
+
+
+            },
+            onTransitionStart: function(swiper){
+                if(currentIndex != swiper.activeIndex){
+                    hideSlide();
+                }
+
+
+            },
+            onSlideChangeStart: function(swiper){
+                var swipeIndex = swiper.snapIndex;
+                if(swipeIndex == 1 || swipeIndex == 21){
                     $('#animation-color').css('opacity', '1');
                     setTimeout(function() {
                         $('#animation-color').css('opacity', '0');
@@ -170,7 +186,7 @@ $(document).ready(function () {
                     $('#page-02-header').hide();
                     $('#bounce-arrow').hide();
                 }
-                else if(currentIndex == 2 || currentIndex ==3){
+                else if(swipeIndex == 2 || swipeIndex ==3){
                     $('#bounce-arrow').show();
                     $('#page-02-header').show();
 
@@ -189,38 +205,38 @@ $(document).ready(function () {
                         }
                     });
                 }
-                else if(currentIndex == 4){
+                else if(swipeIndex == 4){
                     $('#page-02-header').hide();
                     $('body').css('background-image', 'url(imgs/bg.jpg)');
 
                 }
 
-                else if(currentIndex == 9){
+                else if(swipeIndex == 9){
                     $("#parallax-bg").hide();
                     setTimeout(function() {
                         $('body').css('background-image', 'url(imgs/brands-bg.png)');
                     }, 100);
 
                 }
-                else if(currentIndex == 10){
+                else if(swipeIndex == 10){
                     $('body').css('background-image', 'url(imgs/brands-bg.png)');
                     $("#parallax-bg").show();
                     $("#parallax-bg").animate({
                         translate3d: '0,0,0'
                     }, 500, 'ease-out')
                 }
-                 else if(currentIndex == 11){
+                else if(swipeIndex == 11){
                     $("#parallax-bg").animate({
                         translate3d: '0,-22%,0'
                     }, 500, 'ease-out')
 
                 }
-                else if(currentIndex == 12){
+                else if(swipeIndex == 12){
                     $("#parallax-bg").animate({
                         translate3d: '0,-44%,0'
                     }, 500, 'ease-out')
                 }
-                else if(currentIndex == 13){
+                else if(swipeIndex == 13){
                     $('body').css('background-image', 'url(imgs/brands-bg.png)');
                     $("#parallax-bg").show();
                     $("#parallax-bg").animate({
@@ -228,41 +244,26 @@ $(document).ready(function () {
                     }, 500, 'ease-out')
                 }
 
-                else if(currentIndex == 14){
+                else if(swipeIndex == 14){
                     $('body').css('background-image', 'url(imgs/bg.jpg)');
                     $("#parallax-bg").hide();
                 }
-                else if(currentIndex == 15){
+                else if(swipeIndex == 15){
                     $('#page-hudong-header').hide();
                     $('body').css('background-image', 'url(imgs/bg.jpg)');
                 }
-                else if(currentIndex == 16 || currentIndex == 17 ){
+                else if(swipeIndex == 16 || currentIndex == 17 ){
                     $('#page-hudong-header').show();
                     $('body').css('background-image', 'url(imgs/page-huodong-2-bg.jpg)');
                 }
 
-                else if(currentIndex == 18){
+                else if(swipeIndex == 18){
                     $('#page-hudong-header').hide();
                     $('body').css('background-image', 'url(imgs/bg.jpg)');
                 }
-                else if(currentIndex == 20 || currentIndex == 0){
+                else if(swipeIndex == 20 || swipeIndex == 0){
                     $('#bounce-arrow').show();
                 }
-
-
-
-
-
-            },
-            onTransitionStart: function(swiper){
-                if(currentIndex != swiper.activeIndex){
-                    hideSlide();
-                }
-
-
-            },
-            onSlideChangeStart: function(swiper){
-                console.log(swiper.snapIndex);
             }
         });
     }
