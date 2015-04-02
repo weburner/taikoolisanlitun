@@ -249,7 +249,7 @@ $(document).ready(function () {
                     $('#bounce-arrow').show();
                 }
 
-                console.log(">>"+currentIndex);
+
 
 
 
@@ -258,6 +258,7 @@ $(document).ready(function () {
                 if(currentIndex != swiper.activeIndex){
                     hideSlide();
                 }
+                console.log(">>"+currentIndex);
 
             }
         });
