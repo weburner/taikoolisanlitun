@@ -1,10 +1,12 @@
 // Initialize Swiper
+document.ontouchmove = function(e) {e.preventDefault()};
 $(document).ready(function () {
 
     var isOK = false;
     var preload;
     var currentIndex = 0;
     var mySwiper;
+    var modalSlide;
 
     function init() {
         // Create a new queue.
@@ -13,7 +15,7 @@ $(document).ready(function () {
         var plugin = {
             getPreloadHandlers: function () {
                 return {
-                    extensions: ["svg","mp3","png"],
+                    extensions: ["svg","mp3","png","gif"],
                     callback: function (item) {
                         var id = item.src.toLowerCase().split("/").pop().split(".")[0];
                         $("#"+id).attr("src", item.src);
@@ -24,9 +26,12 @@ $(document).ready(function () {
 
         preload.installPlugin(plugin);
         preload.loadManifest(["bg.jpg",
+            "animation.gif",
             "page-01.png",
             "page-01-button.svg",
-            "page-02.jpg"
+            "page-02.jpg",
+            "brands.svg",
+            "brands-bg.png"
 
         ]);
         preload.on("complete", handleComplete);
@@ -35,7 +40,7 @@ $(document).ready(function () {
     }
 
     function handleOverallProgress(event) {
-        console.log(preload.progress);
+//        console.log(preload.progress);
         $('#loading-percent').html(Math.round(preload.progress * 100));
     }
 
@@ -53,6 +58,7 @@ $(document).ready(function () {
             hideOpacity($("#loading"));
             $('#main-content').css('opacity', '1');
             initSwiper();
+            initLink();
             initModal();
             showHideBlock();
             $('body').css('background-image', 'url(imgs/page-02.jpg)');
@@ -79,21 +85,29 @@ $(document).ready(function () {
 
     function initModal(){
         $('.modal-button').on('click', function(e){
+            var index = $(this).attr('modal-index');
             $.get($(this).attr('modal-content'), function(response){
                 $('#modal-content .modal-inner').html(response);
                 $('#modal-content').show();
                 $('#modal-content .modal-container').addClass('animated bounceIn').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
                     $('#modal-content .modal-container').removeClass('animated bounceIn');
 
+
+
                     $('#modal-close-button').show();
                     $('#modal-close-button').addClass('animated fadeIn').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
                         $('#modal-close-button').removeClass('animated fadeIn');
                     });
                 });
-                var swiperV = new Swiper('#modal-content .modal-container', {
+
+                modalSlide = new Swiper('#modal-content .modal-container', {
                     nextButton: '.swiper-button-next',
-                    prevButton: '.swiper-button-prev'
+                    prevButton: '.swiper-button-prev',
+                    loop: true
                 });
+
+                modalSlide.slideTo(index,0);
+
             });
         });
 
@@ -103,9 +117,30 @@ $(document).ready(function () {
                 $('#modal-content .modal-container').removeClass('animated bounceOut');
                 $('#modal-content').hide();
                 $('#modal-content .modal-inner').html('');
+
+                modalSlide.destroy();
+
             });
         });
     }
+    function initLink(){
+        $('.backtocata').on('click', function(e){
+            mySwiper.slideTo(4);
+        });
+        $('#cata1').on('click', function(e){
+            mySwiper.slideTo(5);
+        });
+        $('#cata2').on('click', function(e){
+            mySwiper.slideTo(9);
+        });
+        $('#cata3').on('click', function(e){
+            mySwiper.slideTo(14);
+        });
+        $('#cata4').on('click', function(e){
+            mySwiper.slideTo(19);
+        });
+    }
+
 
     function initSwiper(){
 
@@ -113,8 +148,8 @@ $(document).ready(function () {
         mySwiper = new Swiper ('#main-content', {
             // Optional parameters
             direction: 'vertical',
-            resistanceRatio: 0,
-            noSwiping : true,
+            loop: true,
+            hashnav: true,
 
             onInit: function(swiper){
                 hideSlide();
@@ -125,12 +160,36 @@ $(document).ready(function () {
                     showOnebyOne();
                 }
                 currentIndex = swiper.activeIndex;
-                if(currentIndex == 0){
-                    $('body').css('background-image', 'url(imgs/page-02.jpg)');
+
+
+
+
+
+
+            },
+            onTransitionStart: function(swiper){
+                if(currentIndex != swiper.activeIndex){
+                    hideSlide();
                 }
 
-                if(currentIndex == 1){
-                    mySwiper.allowSwipeToNext = false;
+
+            },
+            onSlideChangeStart: function(swiper){
+                var swipeIndex = swiper.snapIndex;
+                if(swipeIndex == 1 || swipeIndex == 21){
+                    $('#animation-color').css('opacity', '1');
+                    setTimeout(function() {
+                        $('#animation-color').css('opacity', '0');
+                    }, 3000);
+
+                    $('body').css('background-image', 'url(imgs/page-02.jpg)');
+                    $('#page-02-header').hide();
+                    $('#bounce-arrow').hide();
+                }
+                else if(swipeIndex == 2 || swipeIndex ==3){
+                    $('#bounce-arrow').show();
+                    $('#page-02-header').show();
+
                     $('body').css('background-image', 'url(imgs/page-02.jpg)');
                     $('#page-02-header').css('opacity', '1');
                     $('#page-02-header').children().each(function(element){
@@ -146,62 +205,65 @@ $(document).ready(function () {
                         }
                     });
                 }
+                else if(swipeIndex == 4){
+                    $('#page-02-header').hide();
+                    $('body').css('background-image', 'url(imgs/bg.jpg)');
 
-                if(currentIndex == 8){
-                    $("#parallax-bg").hide();
                 }
-                if(currentIndex == 9){
+
+                else if(swipeIndex == 9){
+                    $("#parallax-bg").hide();
+                    setTimeout(function() {
+                        $('body').css('background-image', 'url(imgs/brands-bg.png)');
+                    }, 100);
+
+                }
+                else if(swipeIndex == 10){
                     $('body').css('background-image', 'url(imgs/brands-bg.png)');
                     $("#parallax-bg").show();
                     $("#parallax-bg").animate({
                         translate3d: '0,0,0'
                     }, 500, 'ease-out')
                 }
-                 else if(currentIndex == 10){
+                else if(swipeIndex == 11){
                     $("#parallax-bg").animate({
-                        translate3d: '0,-20%,0'
+                        translate3d: '0,-22%,0'
                     }, 500, 'ease-out')
 
                 }
-                else if(currentIndex == 11){
+                else if(swipeIndex == 12){
                     $("#parallax-bg").animate({
-                        translate3d: '0,-40%,0'
+                        translate3d: '0,-44%,0'
                     }, 500, 'ease-out')
                 }
-                else if(currentIndex == 12){
+                else if(swipeIndex == 13){
                     $('body').css('background-image', 'url(imgs/brands-bg.png)');
                     $("#parallax-bg").show();
                     $("#parallax-bg").animate({
-                        translate3d: '0,-60%,0'
+                        translate3d: '0,-66%,0'
                     }, 500, 'ease-out')
                 }
-                else if(currentIndex == 13){
+
+                else if(swipeIndex == 14){
                     $('body').css('background-image', 'url(imgs/bg.jpg)');
                     $("#parallax-bg").hide();
                 }
-                else if(currentIndex == 15){
+                else if(swipeIndex == 15){
+                    $('#page-hudong-header').hide();
+                    $('body').css('background-image', 'url(imgs/bg.jpg)');
+                }
+                else if(swipeIndex == 16 || currentIndex == 17 ){
                     $('#page-hudong-header').show();
                     $('body').css('background-image', 'url(imgs/page-huodong-2-bg.jpg)');
                 }
-                console.log(">>"+currentIndex);
 
-
-
-            },
-            onTransitionStart: function(swiper){
-                if(currentIndex != swiper.activeIndex){
-                    hideSlide();
-                }
-                if(currentIndex != 0 && currentIndex != 1 && currentIndex != 2 ){
-                    $('#page-02-header').css('opacity', '0');
-                }
-                if(currentIndex == 3 ){
+                else if(swipeIndex == 18){
+                    $('#page-hudong-header').hide();
                     $('body').css('background-image', 'url(imgs/bg.jpg)');
                 }
-
-
-
-
+                else if(swipeIndex == 20 || swipeIndex == 0){
+                    $('#bounce-arrow').show();
+                }
             }
         });
     }
@@ -235,5 +297,5 @@ $(document).ready(function () {
         });
     }
 
-    console.log('js');
+//    console.log('js');
 });
